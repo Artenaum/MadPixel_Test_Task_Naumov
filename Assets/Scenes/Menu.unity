@@ -1250,8 +1250,10 @@ GameObject:
   m_Component:
   - component: {fileID: 752371937}
   - component: {fileID: 752371936}
+  - component: {fileID: 752371938}
+  - component: {fileID: 752371939}
   m_Layer: 0
-  m_Name: backgroundMusic
+  m_Name: SoundManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1368,6 +1370,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &752371938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752371935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e3e4dfd1f6627d2cb60202fd430bf67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &752371939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752371935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77058ba3b2405d44aab8f1c801bf9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &952424655 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 166468324389299599, guid: 1b6e0cf5d2584e64cafae628df1bed8a, type: 3}
