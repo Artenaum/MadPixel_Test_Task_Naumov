@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Game.CubeNS;
 using Game.Audio;
+using YG;
 namespace Game {
     public class InGameManager :MonoBehaviour {
 
@@ -127,8 +128,16 @@ namespace Game {
             get { return isGameOver; }
         }
         private bool isGameOver = false;
-        public void RestartGame() => ChangeScene(1);
-        public void BackToMenu() => ChangeScene(0);
+        
+		public void RestartGame() {
+			YG2.RewardedAdvShow("restart");
+			ChangeScene(1);
+		}
+        
+		public void BackToMenu() {
+			YG2.InterstitialAdvShow();
+			ChangeScene(0);
+		}
         //private void ChangeScene(int i) => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + i);
 		private void ChangeScene(int i) => SceneManager.LoadScene(i);
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.CubeNS;
+using YG;
 namespace Game.UI {
     public class InputManager :MonoBehaviour {
 
@@ -25,7 +26,7 @@ namespace Game.UI {
         }
 
         private void Update() {
-            if (!waiting && !inGameUIManager.inGameManager.IsGameOver) {
+            if (!waiting && !inGameUIManager.inGameManager.IsGameOver && !YG2.nowAdsShow) {
                 if (Input.GetMouseButton(0)) MouseInput();
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) 
                     ArrowInput(Vector3.left);
