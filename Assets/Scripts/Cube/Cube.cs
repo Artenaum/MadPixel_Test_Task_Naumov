@@ -19,7 +19,7 @@ namespace Game.CubeNS {
             IsPushed = true;
         }
         protected override void SetValueToManagerList() {
-            if(inGameManager.collisionCube.Count < 2)
+            //if(inGameManager.collisionCube.Count < 2)
             inGameManager.collisionCube.Add(this.gameObject);
         }
 

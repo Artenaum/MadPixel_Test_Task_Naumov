@@ -269,7 +269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &177036931
 RectTransform:
   m_ObjectHideFlags: 0
@@ -874,7 +874,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -100}
+  m_AnchoredPosition: {x: 100, y: -100}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &256688586
@@ -1981,7 +1981,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &707557332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2902,7 +2902,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1620, y: 2160}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.495
+  m_MatchWidthOrHeight: 0.6
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -3094,7 +3094,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hight score:43994908
+  m_text: High score:43994908
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8b85336b80b3f946a69ac7be9bc0be0, type: 2}
   m_sharedMaterial: {fileID: 7775057019408837685, guid: b8b85336b80b3f946a69ac7be9bc0be0, type: 2}
@@ -3121,7 +3121,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 66.4
+  m_fontSize: 72
   m_fontSizeBase: 65.2
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3642,7 +3642,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1417108898
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4194,10 +4194,10 @@ RectTransform:
   - {fileID: 1208100286}
   m_Father: {fileID: 150991785}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: -750, y: 300}
+  m_AnchoredPosition: {x: -500, y: -100}
+  m_SizeDelta: {x: 800, y: 300}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1632910541
 MonoBehaviour:

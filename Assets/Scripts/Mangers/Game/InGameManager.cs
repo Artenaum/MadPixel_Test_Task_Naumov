@@ -30,13 +30,14 @@ namespace Game {
         [Header("Boards")]
         [SerializeField] Vector3 boards;
 
-        [HideInInspector] public List<GameObject> collisionCube;
+        public List<GameObject> collisionCube; //[HideInInspector]
 
         public int Score {
             set { 
                 score += value; 
                 if(score > GetScore()) {
-                    PlayerPrefs.SetInt("Score", score);
+                   // PlayerPrefs.SetInt("Score", score);
+				   PlayerPrefs.SetInt("cubeScore", score);
                 }
                 inGameUIManager.inGameUi.SetScore(score, GetScore());
             }
@@ -97,22 +98,23 @@ namespace Game {
         private bool RandomBool() { return Random.value > 0.5f;}
 
         private void Update() {
-            if(collisionCube.Count > 0) {
-                Cube localCub = collisionCube[0].GetComponent<Cube>();
-                localCub.currIntOfArr++;
-                localCub.SetNewParam();
-                Score = localCub.currNum;
-                localCub.IsCollision = false;
-                mergeAudio.Play();
+			if (collisionCube.Count > 0) {
+				Cube localCub = collisionCube[0].GetComponent<Cube>();
+				localCub.currIntOfArr++;
+				localCub.SetNewParam();
+				Score = localCub.currNum;
+				localCub.IsCollision = false;
+				mergeAudio.Play();
 
-                int i = 1;
-                do {
-                    collisionCube[i].gameObject.SetActive(false);
-                    i++;
-                }
-                while (i < collisionCube.Count);
-                collisionCube.Clear();
-            }
+				if (collisionCube.Count > 1) {
+					for (int i = 2; i < collisionCube.Count; i++) {
+						collisionCube[i].GetComponent<Cube>().IsCollision = false;
+					}
+				}
+
+				Destroy(collisionCube[1].gameObject);
+				collisionCube.Clear();
+			}
         }
 
 
@@ -125,8 +127,9 @@ namespace Game {
             get { return isGameOver; }
         }
         private bool isGameOver = false;
-        public void RestartGame() => ChangeScene(0);
+        public void RestartGame() => ChangeScene(1);
         public void BackToMenu() => ChangeScene(0);
-        private void ChangeScene(int i) => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + i);
+        //private void ChangeScene(int i) => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + i);
+		private void ChangeScene(int i) => SceneManager.LoadScene(i);
     }
 }
