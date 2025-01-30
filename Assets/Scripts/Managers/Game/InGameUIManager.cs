@@ -6,12 +6,14 @@ using YG;
 
 namespace Game {
     public class InGameUIManager :MonoBehaviour {
+		
         public InGameManager inGameManager;
         [Header("UI Managers")]
         public InputManager inputManager;
         public InGameUi inGameUi;
         public SettingMenu settingMenu;
         public GameOver gameOver;
+
         public void Init() {
             inputManager.Init(this);
             inGameUi.Init(true);
@@ -20,7 +22,7 @@ namespace Game {
         }
 
         public void OpenSetting() {
-            inputManager.Waintig = true;
+            inputManager.Waiting = true;
 
             inGameUi.Close();
             settingMenu.Open();
@@ -28,7 +30,7 @@ namespace Game {
         }
 
         public void CloseSetting() {
-            inputManager.Waintig = false;
+            inputManager.Waiting = false;
 
             inGameUi.Open();
             settingMenu.Close();
@@ -36,7 +38,7 @@ namespace Game {
         }
 
         public void GameOver() {
-            inputManager.Waintig = true;
+            inputManager.Waiting = true;
 
             inGameUi.Close();
             settingMenu.Close();

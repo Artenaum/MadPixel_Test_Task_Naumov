@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Game.CubeNS {
     public class Cube :BaseCube {
-        [SerializeField] InGameManager inGameManager;
 
+        [SerializeField] InGameManager inGameManager;
 
         public bool IsPushed {
             set { isPushed = value; }
             get { return isPushed; }
         }
+
         private bool isPushed = false;
 
         public void StartCoroutinePushed(float time) => StartCoroutine(PushedChange(time));
@@ -18,11 +19,10 @@ namespace Game.CubeNS {
             yield return new WaitForSeconds(time);
             IsPushed = true;
         }
+		
         protected override void SetValueToManagerList() {
-            //if(inGameManager.collisionCube.Count < 2)
             inGameManager.collisionCube.Add(this.gameObject);
         }
-
 
         private void Update() {
             if (inGameManager.IsGameOver) return;
@@ -40,11 +40,9 @@ namespace Game.CubeNS {
             
         }
 
-        
         public void FoundManager(InGameManager inGame) {
             inGameManager = inGame;
         }
 
-       
     }
 }

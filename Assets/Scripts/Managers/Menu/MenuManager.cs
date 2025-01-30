@@ -6,6 +6,7 @@ using Game.CubeNS;
 using YG;
 namespace Menu {
     public class MenuManager :MonoBehaviour {
+
         [SerializeField] MenuUIManager menuUIManager;
 
         [HideInInspector] public List<GameObject> collisionCube;
@@ -15,6 +16,7 @@ namespace Menu {
             Init();
             menuUIManager.Init();
         }
+
         private void Init() {
             int i = 0;
             while (i < menuCubesList.Count) {
@@ -22,11 +24,12 @@ namespace Menu {
                 i++;
             }
         }
+		
         private void Update() {
             if (collisionCube.Count > 0) {
-                MenuCube localCub = collisionCube[0].GetComponent<MenuCube>();
-                localCub.currIntOfArr++;
-                localCub.SetNewParam();
+                MenuCube localCube = collisionCube[0].GetComponent<MenuCube>();
+                localCube.currentIndexOfArray++;
+                localCube.SetNewParam();
                 int i = 1;
                 do {
                     collisionCube[i].gameObject.SetActive(false);

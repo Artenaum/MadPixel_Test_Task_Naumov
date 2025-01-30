@@ -13,10 +13,8 @@ namespace Game.UI {
         [SerializeField] InGameUIManager inGameUIManager;
 		[SerializeField] SoundManager soundManager;
 
-      
         [SerializeField] Button restartButton;
         [SerializeField] Button backToMenuButton;
-
 
         [SerializeField] Button okButton;
         [SerializeField] Button closeButton;
@@ -38,9 +36,6 @@ namespace Game.UI {
             backToMenuButton.onClick.AddListener(BackToMenu);
             musicButton.onClick.AddListener(ChangeMusic);
 
-            //TODO SAVE Music Value
-            //musicOff.gameObject.SetActive(Convert.ToBoolean(PlayerPrefs.GetInt("soundState", 1)));
-            //musicOn.gameObject.SetActive(!Convert.ToBoolean(PlayerPrefs.GetInt("soundState", 0)));
 			musicOff.gameObject.SetActive(!YG2.saves.soundState);
 			musicOn.gameObject.SetActive(YG2.saves.soundState);
 
@@ -62,8 +57,11 @@ namespace Game.UI {
 		}
 
         private void CloseSettingMenu() => inGameUIManager.CloseSetting();
+
         private void RestartGame() => inGameUIManager.inGameManager.RestartGame();
+
         private void BackToMenu() => inGameUIManager.inGameManager.BackToMenu();
+
         private void ChangeMusic() {
             if (musicOff.gameObject.activeSelf) MusicSwitcher(true);
             else MusicSwitcher(false);
@@ -73,7 +71,6 @@ namespace Game.UI {
             musicOff.gameObject.SetActive(!value);
             musicOn.gameObject.SetActive(value);
 
-            //inGameUIManager.inGameManager.audioSwitcher.SwitchVolume(value);
 			soundManager.SwitchSound(value);
 			YG2.saves.soundState = value;
         }

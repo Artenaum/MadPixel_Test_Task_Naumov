@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.CubeNS;
 using YG;
+
 namespace Game.UI {
     public class InputManager :MonoBehaviour {
 
@@ -10,16 +11,16 @@ namespace Game.UI {
 
         InGameUIManager inGameUIManager;
         
-        public bool Waintig {
+        public bool Waiting {
             set { 
                 waiting = value;
                 isPressed = false;
             }
         }
+
         private bool waiting;
 
         private bool isPressed = false;
-
 
         public void Init(InGameUIManager manager) {
             inGameUIManager = manager;
@@ -46,7 +47,9 @@ namespace Game.UI {
                 }
             }
         }
+
         private float deltaSwipe = 0.005f;
+
         private void MouseInput() {
             isPressed = true;
             var mousePos2D = Input.mousePosition;
@@ -63,6 +66,7 @@ namespace Game.UI {
                 inGameUIManager.inGameManager.CubeGO.GetComponent<Cube>().MoveToSide(Vector3.right*2);
             else inGameUIManager.inGameManager.CubeGO.GetComponent<Cube>().MoveToSide(Vector3.zero);
         }
+
         private void ArrowInput(Vector3 vector) {
             isPressed = true;
             inGameUIManager.inGameManager.CubeGO.GetComponent<Cube>().MoveToSide(vector);

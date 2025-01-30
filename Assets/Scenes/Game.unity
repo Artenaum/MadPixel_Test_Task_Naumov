@@ -249,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inGameUIManager: {fileID: 1052250255}
   settingButton: {fileID: 256688586}
-  currScoreText: {fileID: 653714251}
+  currentScoreText: {fileID: 653714251}
   recordScoreText: {fileID: 1208100287}
 --- !u!1 &177036930
 GameObject:

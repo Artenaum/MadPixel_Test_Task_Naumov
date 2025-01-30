@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using Game.CubeNS;
 using Game.Audio;
 using YG;
+
 namespace Game {
     public class InGameManager :MonoBehaviour {
 
@@ -17,6 +18,7 @@ namespace Game {
         public GameObject CubeGO {
             get { return cube; }
         }
+
         private GameObject cube;
         private Cube cubeCube;
 
@@ -24,6 +26,7 @@ namespace Game {
         public float TimeToChange {
             get { return timeBetweenChangeCube; }
         }
+
         [SerializeField] private float timeBetweenChangeCube = 1f;
         [Header("Start Generation Prefabs")]
         [SerializeField] List<Vector3> startPositionCubes;
@@ -31,30 +34,31 @@ namespace Game {
         [Header("Boards")]
         [SerializeField] Vector3 boards;
 
-        public List<GameObject> collisionCube; //[HideInInspector]
+        [HideInInspector] public List<GameObject> collisionCube;
 
         public int Score {
             set { 
                 score += value; 
                 if(score > GetScore()) {
-                   // PlayerPrefs.SetInt("Score", score);
-				   // PlayerPrefs.SetInt("cubeScore", score);
 				   YG2.saves.highScore = score;
                 }
                 inGameUIManager.inGameUi.SetScore(score, GetScore());
             }
             get { return score; }
         }
+
         private int score = 0;
 
-
         private int GetScore() { return YG2.saves.highScore; }
+
         public Vector3 Boards {
             get { return boards; }
         }
+
         private void Awake() {
             Init();
         }
+
         private void Init() {
             inGameUIManager.Init();
             NewCube();
@@ -92,20 +96,21 @@ namespace Game {
         public void RechargeCubeCoroutine() => StartCoroutine(RechargeCube()); 
 
         private IEnumerator RechargeCube() {
-            inGameUIManager.inputManager.Waintig = true;
+            inGameUIManager.inputManager.Waiting = true;
             yield return new WaitForSeconds(timeBetweenChangeCube);
             NewCube();
-            inGameUIManager.inputManager.Waintig = false;
+            inGameUIManager.inputManager.Waiting = false;
         }
+
         private bool RandomBool() { return Random.value > 0.5f;}
 
         private void Update() {
 			if (collisionCube.Count > 0) {
-				Cube localCub = collisionCube[0].GetComponent<Cube>();
-				localCub.currIntOfArr++;
-				localCub.SetNewParam();
-				Score = localCub.currNum;
-				localCub.IsCollision = false;
+				Cube localCube = collisionCube[0].GetComponent<Cube>();
+				localCube.currentIndexOfArray++;
+				localCube.SetNewParam();
+				Score = localCube.currentNumber;
+				localCube.IsCollision = false;
 				mergeAudio.Play();
 
 				if (collisionCube.Count > 1) {
@@ -119,7 +124,6 @@ namespace Game {
 			}
         }
 
-
         public void GameOver() {
             isGameOver = true;
             inGameUIManager.GameOver();
@@ -128,6 +132,7 @@ namespace Game {
         public bool IsGameOver {
             get { return isGameOver; }
         }
+		
         private bool isGameOver = false;
         
 		public void RestartGame() {
@@ -139,7 +144,7 @@ namespace Game {
 			YG2.InterstitialAdvShow();
 			ChangeScene(0);
 		}
-        //private void ChangeScene(int i) => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + i);
+
 		private void ChangeScene(int i) => SceneManager.LoadScene(i);
     }
 }

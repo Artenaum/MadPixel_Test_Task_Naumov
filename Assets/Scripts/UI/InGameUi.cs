@@ -9,7 +9,7 @@ namespace Game.UI {
 
         [SerializeField] InGameUIManager inGameUIManager;
         [SerializeField] Button settingButton;
-        [SerializeField] TextMeshProUGUI currScoreText;
+        [SerializeField] TextMeshProUGUI currentScoreText;
         [SerializeField] TextMeshProUGUI recordScoreText;
 
         public override void Init(bool isOpen = false) {
@@ -25,13 +25,13 @@ namespace Game.UI {
 
         private void OpenSetting() => inGameUIManager.OpenSetting();
 
-        public void SetScore(int score, int hightScore) {
-            currScoreText.text = score.ToString();
+        public void SetScore(int score, int highScore) {
+            currentScoreText.text = score.ToString();
 
 			if (YG2.lang == "en") {
-            	recordScoreText.text = "High score: " + hightScore.ToString();
+            	recordScoreText.text = "High score: " + highScore.ToString();
 			} else if (YG2.lang == "ru") {
-				recordScoreText.text = "Рекорд: " + hightScore.ToString();
+				recordScoreText.text = "Рекорд: " + highScore.ToString();
 			}
         }
     }

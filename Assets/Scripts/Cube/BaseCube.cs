@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace Game.CubeNS {
     public class BaseCube :MonoBehaviour {
+
         protected Rigidbody rigidbody;
         [SerializeField] protected CubeView cubeView;
 
-        public int currNum;
-        public int currIntOfArr;
+        public int currentNumber;
+        public int currentIndexOfArray;
 
         public int maxRandomStartInt = 2;
         [Space]
@@ -16,24 +18,24 @@ namespace Game.CubeNS {
         private float verticalSpeed = 300;
         [Header("Music")]
         [SerializeField] AudioSource dropAudio;
+
         private void Awake() {
             rigidbody = GetComponent<Rigidbody>();
         }
+
         public virtual void Init() {
-           // FoundManager();
             cubeView.Init();
 
             GenerateNum();
             SetNewParam();
         }
 
-
         protected void GenerateNum() =>
-            currIntOfArr = Random.Range(0, maxRandomStartInt);
+            currentIndexOfArray = Random.Range(0, maxRandomStartInt);
 
         public void SetNewParam() {
-            cubeView.SetNewParam(currIntOfArr);
-            currNum = (int)Mathf.Pow(2, currIntOfArr + 1);
+            cubeView.SetNewParam(currentIndexOfArray);
+            currentNumber = (int)Mathf.Pow(2, currentIndexOfArray + 1);
         }
 
         public virtual void MoveForward() {
@@ -42,20 +44,24 @@ namespace Game.CubeNS {
         }
 
         public void MoveToSide(Vector3 vector) => rigidbody.velocity = vector;
+
         public Vector3 Position {
             get { return transform.position; }
         }
-        protected void MoveUp() => Move(Vector3.up, verticalSpeed);
-        protected void Move(Vector3 vector, float speed) => rigidbody.AddForce(vector * speed);
 
+        protected void MoveUp() => Move(Vector3.up, verticalSpeed);
+
+        protected void Move(Vector3 vector, float speed) => rigidbody.AddForce(vector * speed);
 
         public bool IsCollision {
             set { isCollision = value; }
         }
+
         private bool isCollision = false;
+		
         protected virtual void OnCollisionEnter(Collision collision) {
             if (collision.gameObject.TryGetComponent<Cube>(out Cube otherCube)) {
-                if (otherCube.currIntOfArr == currIntOfArr && !isCollision) {
+                if (otherCube.currentIndexOfArray == currentIndexOfArray && !isCollision) {
                     if (isCollision) return;
                     isCollision = true;
                     rigidbody.constraints = RigidbodyConstraints.None;

@@ -4,7 +4,9 @@ using Menu;
 using UnityEngine;
 namespace Game.CubeNS {
     public class MenuCube : BaseCube {
+
         [SerializeField] MenuManager menuManager;
+		
         protected override void SetValueToManagerList() {
             menuManager.collisionCube.Add(this.gameObject);
         }
@@ -22,7 +24,7 @@ namespace Game.CubeNS {
 
         protected override void OnCollisionEnter(Collision collision) {
             if (collision.gameObject.TryGetComponent<MenuCube>(out MenuCube otherCube)) {
-                if (otherCube.currIntOfArr == currIntOfArr) {
+                if (otherCube.currentIndexOfArray == currentIndexOfArray) {
                     rigidbody.constraints = RigidbodyConstraints.None;
                     SetValueToManagerList();
                     MoveUp();
