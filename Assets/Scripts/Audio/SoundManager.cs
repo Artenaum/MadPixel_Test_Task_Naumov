@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using YG;
 
 namespace Game.Audio {
 	public class SoundManager : MonoBehaviour {
@@ -20,7 +21,7 @@ namespace Game.Audio {
 			}
 
 			audioSwitcher = GetComponent<AudioSwitcher>();
-			audioSwitcher.SwitchVolume(Convert.ToBoolean(PlayerPrefs.GetInt("soundState", 1)));
+			audioSwitcher.SwitchVolume(YG2.saves.soundState);
 
 			DontDestroyOnLoad(this.gameObject);
 		}

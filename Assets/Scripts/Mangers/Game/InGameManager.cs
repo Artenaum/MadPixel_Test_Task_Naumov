@@ -38,7 +38,8 @@ namespace Game {
                 score += value; 
                 if(score > GetScore()) {
                    // PlayerPrefs.SetInt("Score", score);
-				   PlayerPrefs.SetInt("cubeScore", score);
+				   // PlayerPrefs.SetInt("cubeScore", score);
+				   YG2.saves.highScore = score;
                 }
                 inGameUIManager.inGameUi.SetScore(score, GetScore());
             }
@@ -47,7 +48,7 @@ namespace Game {
         private int score = 0;
 
 
-        private int GetScore() { return PlayerPrefs.GetInt("cubeScore", 0); }
+        private int GetScore() { return YG2.saves.highScore; }
         public Vector3 Boards {
             get { return boards; }
         }

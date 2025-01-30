@@ -39,8 +39,10 @@ namespace Game.UI {
             musicButton.onClick.AddListener(ChangeMusic);
 
             //TODO SAVE Music Value
-            musicOff.gameObject.SetActive(Convert.ToBoolean(PlayerPrefs.GetInt("soundState", 1)));
-            musicOn.gameObject.SetActive(!Convert.ToBoolean(PlayerPrefs.GetInt("soundState", 0)));
+            //musicOff.gameObject.SetActive(Convert.ToBoolean(PlayerPrefs.GetInt("soundState", 1)));
+            //musicOn.gameObject.SetActive(!Convert.ToBoolean(PlayerPrefs.GetInt("soundState", 0)));
+			musicOff.gameObject.SetActive(!YG2.saves.soundState);
+			musicOn.gameObject.SetActive(YG2.saves.soundState);
 
 			if (YG2.lang == "en") {
 				musicButtonText.text = "Music";
@@ -63,17 +65,17 @@ namespace Game.UI {
         private void RestartGame() => inGameUIManager.inGameManager.RestartGame();
         private void BackToMenu() => inGameUIManager.inGameManager.BackToMenu();
         private void ChangeMusic() {
-            if (musicOff.gameObject.activeSelf) MusicSwitcher(false);
-            else MusicSwitcher(true);
+            if (musicOff.gameObject.activeSelf) MusicSwitcher(true);
+            else MusicSwitcher(false);
         }
 
         private void MusicSwitcher(bool value) {
-            musicOff.gameObject.SetActive(value);
-            musicOn.gameObject.SetActive(!value);
+            musicOff.gameObject.SetActive(!value);
+            musicOn.gameObject.SetActive(value);
 
             //inGameUIManager.inGameManager.audioSwitcher.SwitchVolume(value);
 			soundManager.SwitchSound(value);
-			PlayerPrefs.SetInt("soundState", Convert.ToInt32(value));
+			YG2.saves.soundState = value;
         }
 
     }
