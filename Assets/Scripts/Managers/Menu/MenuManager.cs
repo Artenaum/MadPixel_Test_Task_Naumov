@@ -15,6 +15,7 @@ namespace Menu {
         private void Awake() {
             Init();
             menuUIManager.Init();
+			YG2.StickyAdActivity(true);
         }
 
         private void Init() {
@@ -24,7 +25,7 @@ namespace Menu {
                 i++;
             }
         }
-		
+
         private void Update() {
             if (collisionCube.Count > 0) {
                 MenuCube localCube = collisionCube[0].GetComponent<MenuCube>();
