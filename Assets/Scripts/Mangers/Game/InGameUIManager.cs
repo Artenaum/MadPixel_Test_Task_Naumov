@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.UI;
+using YG;
+
 namespace Game {
     public class InGameUIManager :MonoBehaviour {
         public InGameManager inGameManager;

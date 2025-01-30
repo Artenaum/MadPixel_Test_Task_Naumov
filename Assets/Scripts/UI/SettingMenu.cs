@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using Game.Audio;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using YG;
+
 namespace Game.UI {
     public class SettingMenu :MenuWindow {
 
@@ -21,6 +24,11 @@ namespace Game.UI {
         [SerializeField] Button musicButton;
         [SerializeField] Image musicOff;
         [SerializeField] Image musicOn;
+
+		[SerializeField] TMP_Text musicButtonText;
+		[SerializeField] TMP_Text restartButtonText;
+		[SerializeField] TMP_Text backButtonText;
+
         public override void Init(bool isOpen = false) {
             base.Init(isOpen);
             okButton.onClick.AddListener(CloseSettingMenu);
@@ -33,6 +41,16 @@ namespace Game.UI {
             //TODO SAVE Music Value
             musicOff.gameObject.SetActive(Convert.ToBoolean(PlayerPrefs.GetInt("soundState", 1)));
             musicOn.gameObject.SetActive(!Convert.ToBoolean(PlayerPrefs.GetInt("soundState", 0)));
+
+			if (YG2.lang == "en") {
+				musicButtonText.text = "Music";
+				restartButtonText.text = "Restart";
+				backButtonText.text = "Back to menu";
+			} else if (YG2.lang == "ru") {
+				musicButtonText.text = "Музыка";
+				restartButtonText.text = "Заново";
+				backButtonText.text = "Назад в меню";
+			}
         }
 
 		private void Awake() {

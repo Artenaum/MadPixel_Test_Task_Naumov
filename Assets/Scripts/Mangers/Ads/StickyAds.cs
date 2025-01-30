@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using YG;
 
 public class StickyAds : MonoBehaviour {
 
 	private static StickyAds instance;
-
-	private Banner banner;
 
 	public static StickyAds Instance {
 		get { return instance; }

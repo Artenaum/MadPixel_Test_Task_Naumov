@@ -530,7 +530,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 47, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &220876077
 MonoBehaviour:
@@ -579,8 +579,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 112.4
-  m_fontSizeBase: 112.4
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -976,7 +976,7 @@ GameObject:
   - component: {fileID: 282594326}
   - component: {fileID: 282594325}
   m_Layer: 5
-  m_Name: autor
+  m_Name: gameover_txt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1021,9 +1021,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'GAME OVER
-
-'
+  m_text: GAME OVER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8b85336b80b3f946a69ac7be9bc0be0, type: 2}
   m_sharedMaterial: {fileID: 7775057019408837685, guid: b8b85336b80b3f946a69ac7be9bc0be0, type: 2}
@@ -1050,8 +1048,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 160
-  m_fontSizeBase: 160
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1981,7 +1979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &707557332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1997,6 +1995,9 @@ MonoBehaviour:
   inGameUIManager: {fileID: 1052250255}
   restartButton: {fileID: 1619266187}
   backToMenuButton: {fileID: 1332415060}
+  gameOverText: {fileID: 282594325}
+  restartButtonText: {fileID: 1917121232}
+  backButtonText: {fileID: 2051298334}
   gameOverAudio: {fileID: 707557334}
 --- !u!224 &707557333
 RectTransform:
@@ -3183,7 +3184,7 @@ GameObject:
   - component: {fileID: 1249816704}
   - component: {fileID: 1249816703}
   m_Layer: 5
-  m_Name: autor
+  m_Name: author
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3685,6 +3686,9 @@ MonoBehaviour:
   musicButton: {fileID: 194050224}
   musicOff: {fileID: 633949936}
   musicOn: {fileID: 978417185}
+  musicButtonText: {fileID: 220876077}
+  restartButtonText: {fileID: 1938327697}
+  backButtonText: {fileID: 2127048918}
 --- !u!1 &1427182110
 GameObject:
   m_ObjectHideFlags: 0
@@ -4616,8 +4620,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 112.4
-  m_fontSizeBase: 112.4
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4750,8 +4754,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 112.4
-  m_fontSizeBase: 112.4
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4969,8 +4973,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 112.4
-  m_fontSizeBase: 112.4
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5210,7 +5214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Back to menu
+  m_text: Return to menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8b85336b80b3f946a69ac7be9bc0be0, type: 2}
   m_sharedMaterial: {fileID: 7775057019408837685, guid: b8b85336b80b3f946a69ac7be9bc0be0, type: 2}
@@ -5237,8 +5241,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 112.4
-  m_fontSizeBase: 112.4
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -1,3 +1,4 @@
 InterstitialAdv v1.001
+Localization v1.001
 RewardedAdv v1.001
 StickyAdv v1.0
